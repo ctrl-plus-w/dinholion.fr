@@ -3,7 +3,7 @@ services:
   db-dinholion:
     image: postgres
     volumes:
-      - postgres-db:/var/lib/postgresql/data/dinholion
+      - postgres-db:/var/lib/postgresql/data-dinholion
     environment:
       - POSTGRES_DB=dinholion_db
       - POSTGRES_USER=dinholion
