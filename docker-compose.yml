@@ -5,17 +5,17 @@ services:
     volumes:
       - postgres-db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=lidialakay_db
-      - POSTGRES_USER=lidialakay
+      - POSTGRES_DB=dinholion_db
+      - POSTGRES_USER=dinholion
       - POSTGRES_PASSWORD=44754621@321
     ports:
-      - "5433:5432"
+      - "5443:5432"
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  lidialakay:
+  dinholion:
     depends_on:
       - db
-    build: ./lidialakay
+    build: ./dinholion
     volumes:
       - uploads:/app/uploads
     healthcheck:
@@ -24,18 +24,18 @@ services:
       timeout: 5s
       retries: 24
     ports:
-      - "9000:9000"
+      - "9010:9000"
     stdin_open: true
     tty: true
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  lidialakay-storefront:
+  dinholion-storefront:
     depends_on:
-      lidialakay:
+      dinholion:
         condition: service_healthy
-    build: ./lidialakay-storefront
+    build: ./dinholion-storefront
     ports:
-      - "10443:443"
+      - "10463:443"
     stdin_open: true
     tty: true
     extra_hosts:
