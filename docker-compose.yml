@@ -3,7 +3,7 @@ services:
   db-dinholion:
     image: postgres
     volumes:
-      - postgres-db:/var/lib/postgresql/data-dinholion
+      - postgres-db-dinholion:/var/lib/postgresql/data-dinholion
     environment:
       - POSTGRES_DB=dinholion_db
       - POSTGRES_USER=dinholion
@@ -18,7 +18,7 @@ services:
       - db-dinholion
     build: ./dinholion
     volumes:
-      - uploads:/app/uploads
+      - uploads-dinholion:/app/uploads
     healthcheck:
       test: [ "CMD-SHELL", "curl -f localhost:9000/health || exit 1" ]
       interval: 5s
@@ -42,5 +42,5 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 volumes:
-  postgres-db:
-  uploads:
+  postgres-db-dinholion:
+  uploads-dinholion:
