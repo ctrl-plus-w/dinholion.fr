@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=lidialakay_db
+      - POSTGRES_USER=lidialakay
+      - POSTGRES_PASSWORD=44754621@321
+    ports:
+      - "5433:5432"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  lidialakay:
+    depends_on:
+      - db
+    build: ./lidialakay
+    volumes:
+      - uploads:/app/uploads
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f localhost:9000/health || exit 1" ]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+    ports:
+      - "9000:9000"
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  lidialakay-storefront:
+    depends_on:
+      lidialakay:
+        condition: service_healthy
+    build: ./lidialakay-storefront
+    ports:
+      - "10443:443"
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  postgres-db:
+  uploads:
