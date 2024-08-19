@@ -8,6 +8,7 @@ services:
       - POSTGRES_DB=dinholion_db
       - POSTGRES_USER=dinholion
       - POSTGRES_PASSWORD=44754621@321
+      - PGDATA=/var/lib/postgresql/data-dinholion
     ports:
       - "5443:5432"
     extra_hosts:
