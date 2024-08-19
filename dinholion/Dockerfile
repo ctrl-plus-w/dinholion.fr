@@ -11,6 +11,4 @@ RUN npm install
 
 COPY . .
 
-RUN npx medusa migrations run
-
 CMD [ "npm", "start" ]
