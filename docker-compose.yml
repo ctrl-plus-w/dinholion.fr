@@ -1,9 +1,9 @@
 version: "3.9"
 services:
-  db:
+  db-dinholion:
     image: postgres
     volumes:
-      - postgres-db:/var/lib/postgresql/data
+      - postgres-db:/var/lib/postgresql/data/dinholion
     environment:
       - POSTGRES_DB=dinholion_db
       - POSTGRES_USER=dinholion
