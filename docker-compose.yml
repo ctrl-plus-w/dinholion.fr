@@ -14,7 +14,7 @@ services:
       - "host.docker.internal:host-gateway"
   dinholion:
     depends_on:
-      - db
+      - db-dinholion
     build: ./dinholion
     volumes:
       - uploads:/app/uploads
