@@ -10,13 +10,13 @@ const Hero = () => {
             level="h1"
             className="text-3xl leading-10 text-ui-fg-base font-normal"
           >
-            Ecommerce Starter Template
+            Commander un VTC pour tous vos déplacements
           </Heading>
           <Heading
             level="h2"
             className="text-3xl leading-10 text-ui-fg-subtle font-normal"
           >
-            Powered by Medusa and Next.js
+            Chez DINHO LION vous effectuer vos trajets en toute sérénité à un prix raisonnable. Réservez votre chauffeur privé  7/7 jours !
           </Heading>
         </span>
         <a
@@ -24,7 +24,7 @@ const Hero = () => {
           target="_blank"
         >
           <Button variant="secondary">
-            View on GitHub
+            RESERVER VOTRE CHAUFFEUR
             <Github />
           </Button>
         </a>
