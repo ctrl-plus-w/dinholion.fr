@@ -11,10 +11,10 @@ import CountrySelect from "../country-select"
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/store",
-  Search: "/search",
-  Account: "/account",
-  Cart: "/cart",
+  Services: "/store",
+  Compte: "/account",
+  Panier: "/cart",
+  Recherche: "/search",
 }
 
 const SideMenu = ({ regions }: { regions: Region[] | null }) => {
@@ -85,7 +85,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} DINHO LION VTC. All rights
                         reserved.
                       </Text>
                     </div>
